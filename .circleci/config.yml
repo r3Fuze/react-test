@@ -9,7 +9,6 @@ jobs:
         - gh-pages
 
     environment:
-      - SOURCE_BRANCH: master
       - TARGET_BRANCH: gh-pages
 
     steps:
@@ -40,4 +39,4 @@ jobs:
             git config --global user.email $GH_EMAIL
             git config --global user.name $GH_NAME
 
-            yarn deploy
+            yarn deploy -- --message "Automated deployment from CircleCI (${CIRCLE_SHA1}) [ci skip]"
