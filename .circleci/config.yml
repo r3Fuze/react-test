@@ -42,14 +42,12 @@ jobs:
 
             git clone $CIRCLE_REPOSITORY_URL out
 
-            cd out
             git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
             git rm -rf .
-            cd ..
 
             yarn build
 
-            cd out
+            cp -a build/. out/.
 
             git add -A
             git commit -m "Automated deployment from CircleCI (${CIRCLE_SHA1})" --allow-empty
