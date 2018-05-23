@@ -5,6 +5,9 @@ import "./App.css"
 
 import Button from "@material-ui/core/Button"
 
+import TestButton from "components/TestButton"
+// import TestButton from "@/components/TestButton"
+
 const style = {
     background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
     borderRadius: 3,
@@ -31,15 +34,16 @@ class App extends Component {
                     <h1 className="App-title">Welcome to React (now with GA)</h1>
                 </header>
                 <p className="App-intro">
-                    To get started, edit <code>src/App.js</code> and save to reload.
+                    To get started, edit <code>src/App.js</code> and save to reload!
                 </p>
-                
+
                 <Button
                     style={style}
                     onClick={ReactGA.event({category:"User",action:"Pressed the button"})}
                 >
                     Test button
                 </Button>
+                <TestButton></TestButton>
             </div>
         )
     }
