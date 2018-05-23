@@ -39,4 +39,6 @@ jobs:
             git config --global user.email $GH_EMAIL
             git config --global user.name $GH_NAME
 
-            NODE_DEBUG=gh-pages yarn deploy --message "Automated deployment from CircleCI (${CIRCLE_SHA1}) [ci skip]"
+            NODE_DEBUG=gh-pages yarn deploy --message "Automated deployment from CircleCI (${CIRCLE_SHA1}) [ci skip]" --no-push
+            git log
+            git push origin $TARGET_BRANCH
