@@ -4,6 +4,10 @@ jobs:
     docker:
       - image: circleci/node:8
 
+    filters:
+      branches:
+        only: master
+
     branches:
       ignore:
         - gh-pages
