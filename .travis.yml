@@ -15,6 +15,8 @@ script:
   - yarn test --coverage
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+after_success:
+  - yarn build
 deploy:
   provider: pages
   skip-cleanup: true
@@ -22,6 +24,5 @@ deploy:
   keep-history: true
   local-dir: build
   committer-from-gh: true
-  script: yarn build
   on:
     branch: master
