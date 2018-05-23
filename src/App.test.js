@@ -10,5 +10,5 @@ it("renders without crashing", () => {
 })
 
 it("testing vscode coverage", () => {
-    expect(TestButton.prototype.doStuff(2, 2)).toEqual(4)
+    // expect(TestButton.prototype.doStuff(2, 2)).toEqual(4)
 })
