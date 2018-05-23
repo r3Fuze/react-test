@@ -4,14 +4,11 @@ jobs:
     docker:
       - image: circleci/node:8
 
-    working_directory: ~/repo
-    
     branches:
       ignore:
         - gh-pages
 
     environment:
-      - SOURCE_BRANCH: master
       - TARGET_BRANCH: gh-pages
 
     steps:
@@ -39,26 +36,14 @@ jobs:
       - deploy:
           name: Deploy
           command: |
-            if [ $CIRCLE_BRANCH == $SOURCE_BRANCH ]; then
-              git config --global user.email $GH_EMAIL
-              git config --global user.name $GH_NAME
+            git config --global user.email $GH_EMAIL
+            git config --global user.name $GH_NAME
 
-              git clone $CIRCLE_REPOSITORY_URL out
+            yarn build
 
-              cd out
-              git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
-              git rm -rf .
-              cd ..
+            cd build
 
-              yarn build
+            git add -A
+            git commit -m "Automated deployment from CircleCI (${CIRCLE_SHA1})" --allow-empty
 
-              cp -a build/. out/.
-
-              mkdir -p out/.circleci && cp -a .circleci/. out/.circleci/.
-              cd out
-
-              git add -A
-              git commit -m "Automated deployment from CircleCI (${CIRCLE_SHA1})" --allow-empty
-
-              git push origin $TARGET_BRANCH
-            fi
+            git push origin $TARGET_BRANCH
