@@ -52,6 +52,6 @@ jobs:
             cd out
 
             git add -A
-            git commit -m "Automated deployment from CircleCI (${CIRCLE_SHA1}) [ci skip]" --allow-empty
+            git commit -m "Automated deployment from CircleCI (${CIRCLE_SHA1})" --allow-empty
 
             git push origin $TARGET_BRANCH
