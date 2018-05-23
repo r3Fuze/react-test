@@ -15,7 +15,6 @@
   },
   "scripts": {
     "analyze": "source-map-explorer build/static/js/main.*",
-    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "coverage": "npm test -- --coverage",
     "start": "react-scripts start",

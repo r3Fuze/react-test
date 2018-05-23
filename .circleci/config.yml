@@ -10,9 +10,6 @@ jobs:
       ignore:
         - gh-pages
 
-    environment:
-      - TARGET_BRANCH: gh-pages
-
     steps:
       - checkout
       - restore_cache: # special step to restore the dependency cache
@@ -41,19 +38,5 @@ jobs:
             git config --global user.email $GH_EMAIL
             git config --global user.name $GH_NAME
 
-            git clone $CIRCLE_REPOSITORY_URL out
-
-            cd out
-            git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
-            git rm -rf .
-            cd ..
-
             yarn build
-
-            cp -a build/. out/.
-            cd out
-
-            git add -A
-            git commit -m "Automated deployment from CircleCI (${CIRCLE_SHA1})" --allow-empty
-
-            git push origin $TARGET_BRANCH
+            NODE_DEBUG=gh-pages yarn deploy --message "Automated deployment from CircleCI (${CIRCLE_SHA1})"
