@@ -39,4 +39,4 @@ jobs:
             git config --global user.name $GH_NAME
 
             yarn build
-            NODE_DEBUG=gh-pages yarn deploy --message "Automated deployment from CircleCI (${CIRCLE_SHA1})"
+            NODE_DEBUG=gh-pages yarn deploy --message "Automated deployment from CircleCI (${CIRCLE_SHA1})" --dotfiles
