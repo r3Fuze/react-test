@@ -22,5 +22,6 @@ deploy:
   keep-history: true
   local-dir: build
   committer-from-gh: true
+  script: yarn build
   on:
     branch: master
