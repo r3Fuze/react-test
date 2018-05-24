@@ -5,17 +5,13 @@
   "homepage": "https://r3fuze.github.io/react-test",
   "dependencies": {
     "@material-ui/core": "^1.0.0",
-    "gh-pages": "^1.1.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-ga": "^2.5.2",
     "react-scripts": "1.1.4",
-    "source-map-explorer": "^1.5.0",
     "typeface-roboto": "^0.0.54"
   },
   "scripts": {
-    "analyze": "source-map-explorer build/static/js/main.*",
-    "deploy": "gh-pages -d build",
     "coverage": "npm test -- --coverage",
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -43,6 +39,8 @@
     }
   },
   "commitlint": {
-    "extends": ["@commitlint/config-conventional"]
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }
