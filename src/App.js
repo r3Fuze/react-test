@@ -25,6 +25,7 @@ class App extends Component {
         ReactGA.initialize("UA-18717141-5", { 
             testMode: process.env.NODE_ENV === "test",
         })
+        ReactGA.set({ anonymizeIp: true })
     }
     render() {
         return (
