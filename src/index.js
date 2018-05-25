@@ -9,6 +9,7 @@ import registerServiceWorker from "./registerServiceWorker"
 //           https://material-ui.com/customization/css-in-js/#css-injection-order
 // Required to have styled-components styles overwrite material-ui
 // Alternative is surrounding styled-components css with && { ... }
+// This may break something in tests if we just import <App/> we might have to move it to App.js
 import { create } from "jss"
 import JssProvider from "react-jss/lib/JssProvider"
 import { createGenerateClassName, jssPreset } from "@material-ui/core/styles"

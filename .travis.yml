@@ -12,14 +12,21 @@ script:
   - yarn test --coverage
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
-after_success:
+before_deploy:
+  - yarn global add netlify-cli
   - yarn build
 deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-  keep-history: true
-  local-dir: build
-  committer-from-gh: true
-  on:
-    branch: master
+  - provider: pages
+    skip-cleanup: true
+    github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+    keep-history: true
+    local-dir: build
+    committer-from-gh: true
+    on:
+      branch: master
+  - provider: script
+    script: netlify deploy -s $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN -p ./build
+    skip_cleanup: true
+    on:
+      branch: master
+      
