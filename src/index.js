@@ -5,5 +5,29 @@ import "typeface-roboto"
 import App from "./App"
 import registerServiceWorker from "./registerServiceWorker"
 
-ReactDOM.render(<App />, document.getElementById("root"))
+// TODO: See https://material-ui.com/guides/interoperability/#controlling-priority
+//           https://material-ui.com/customization/css-in-js/#css-injection-order
+// Required to have styled-components styles overwrite material-ui
+// Alternative is surrounding styled-components css with && { ... }
+import { create } from "jss"
+import JssProvider from "react-jss/lib/JssProvider"
+import { createGenerateClassName, jssPreset } from "@material-ui/core/styles"
+
+const styleNode = document.createComment("insertion-point-jss")
+document.head.insertBefore(styleNode, document.head.firstChild)
+
+const jss = create(jssPreset())
+jss.options.insertionPoint = "insertion-point-jss"
+
+class JssApp extends React.Component {
+    render() {
+        return (
+            <JssProvider jss={jss} generateClassName={createGenerateClassName()}>
+                <App/>
+            </JssProvider>
+        )
+    }
+}
+
+ReactDOM.render(<JssApp/>, document.getElementById("root"))
 registerServiceWorker()

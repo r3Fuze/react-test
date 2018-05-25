@@ -2,21 +2,22 @@ import React, { Component } from "react"
 import logo from "./logo.svg"
 import "./App.css"
 
+import styled from "styled-components"
 import Button from "@material-ui/core/Button"
 
 import TestButton from "components/TestButton"
 
 const ga = window.ga
 
-const style = {
-    background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
-    borderRadius: 3,
-    border: 0,
-    color: "white",
-    height: 48,
-    padding: "0 30px",
-    boxShadow: "0 3px 5px 2px rgba(255, 105, 135, 0.3)"
-}
+const StyledButton = styled(Button)`
+    background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
+    border-radius: 3px;
+    border: 0;
+    color: white;
+    height: 48px;
+    padding: 0 30px;
+    box-shadow: 0 3px 5px 2px rgba(255, 105, 135, 0.3);
+`
 
 class App extends Component {
     render() {
@@ -30,12 +31,12 @@ class App extends Component {
                     To get started, edit <code>src/App.js</code> and save to reload!
                 </p>
 
-                <Button
-                    style={style}
-                    onClick={ga("event", "Pressed the cool button", { "event_catagory": "User" })}
+                <StyledButton
+                    onClick={ga("event", "Pressed the cool button", { event_catagory: "User" })}
                 >
-                    Test button
-                </Button>
+                    Styled Components
+                </StyledButton>
+                <br/>
                 <TestButton></TestButton>
             </div>
         )
