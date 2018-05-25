@@ -6,6 +6,7 @@
     <script>
       window.dataLayer = window.dataLayer || []
       function ga(){dataLayer.push(arguments)}
+      console.log("%NODE_ENV%")
       ga("js", new Date())
 
       ga("config", "UA-18717141-5", { "anonymize_ip": true })
