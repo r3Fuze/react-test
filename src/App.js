@@ -6,6 +6,8 @@ import Button from "@material-ui/core/Button"
 
 import TestButton from "components/TestButton"
 
+const ga = window.ga
+
 const style = {
     background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
     borderRadius: 3,
@@ -28,7 +30,12 @@ class App extends Component {
                     To get started, edit <code>src/App.js</code> and save to reload!
                 </p>
 
-                <Button style={style}>Test button</Button>
+                <Button
+                    style={style}
+                    onClick={ga("event", "Pressed the cool button", { "event_catagory": "User" })}
+                >
+                    Test button
+                </Button>
                 <TestButton></TestButton>
             </div>
         )
