@@ -6,9 +6,13 @@
     <script>
       window.dataLayer = window.dataLayer || []
       function ga(){dataLayer.push(arguments)}
-      console.log("%NODE_ENV%")
-      ga("js", new Date())
 
+      // Disable analytics outside of prodution
+      if ("%NODE_ENV%" !== "production") {
+        window["ga-disable-UA-18717141-5"] = true
+      }
+
+      ga("js", new Date())
       ga("config", "UA-18717141-5", { "anonymize_ip": true })
     </script>
 
