@@ -1,12 +1,10 @@
 import React, { Component } from "react"
-import ReactGA from "react-ga"
 import logo from "./logo.svg"
 import "./App.css"
 
 import Button from "@material-ui/core/Button"
 
 import TestButton from "components/TestButton"
-// import TestButton from "@/components/TestButton"
 
 const style = {
     background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
@@ -19,14 +17,6 @@ const style = {
 }
 
 class App extends Component {
-    constructor() {
-        super()
-
-        ReactGA.initialize("UA-18717141-5", { 
-            testMode: process.env.NODE_ENV === "test",
-        })
-        ReactGA.set({ anonymizeIp: true })
-    }
     render() {
         return (
             <div className="App">
@@ -38,12 +28,7 @@ class App extends Component {
                     To get started, edit <code>src/App.js</code> and save to reload!
                 </p>
 
-                <Button
-                    style={style}
-                    onClick={ReactGA.event({category:"User",action:"Pressed the button"})}
-                >
-                    Test button
-                </Button>
+                <Button style={style}>Test button</Button>
                 <TestButton></TestButton>
             </div>
         )
