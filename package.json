@@ -2,7 +2,6 @@
   "name": "my-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://r3fuze.github.io/react-test",
   "dependencies": {
     "@material-ui/core": "^1.0.0",
     "react": "^16.3.2",
@@ -23,7 +22,7 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.js",
-      "!src/{index,registerServiceWorker}.js",
+      "!src/{index,registerServiceWorker,setupTests}.js",
       "!src/components/**/index.js"
     ]
   },
