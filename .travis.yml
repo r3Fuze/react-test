@@ -15,9 +15,10 @@ after_script:
 before_deploy:
   - yarn global add netlify-cli
   - yarn build
+  - yarn build-storybook
 deploy:
   provider: script
   skip-cleanup: true
-  script: netlify deploy -s $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN -p ./build
+  script: netlify deploy -s $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN -p ./build && netlify deploy -s $NETLIFY_SITE_ID_SB -t $NETLIFY_ACCESS_TOKEN -p ./storybook-static
   on:
     branch: master
