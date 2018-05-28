@@ -28,7 +28,8 @@
     "collectCoverageFrom": [
       "src/**/*.js",
       "!src/{index,registerServiceWorker,setupTests}.js",
-      "!src/components/**/index.js"
+      "!src/components/**/index.js",
+      "!src/stories/*"
     ]
   },
   "devDependencies": {
