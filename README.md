@@ -1,5 +1,5 @@
 [![Travis](https://img.shields.io/travis/r3Fuze/react-test.svg?style=flat-square)](https://travis-ci.org/r3Fuze/react-test)
-[![Code Climate](https://api.codeclimate.com/v1/badges/be7e5c2527819954901d/test_coverage)](https://codeclimate.com/github/r3Fuze/react-test/test_coverage)
+[![Code Climate](https://api.codeclimate.com/v1/badges/be7e5c2527819954901d/test_coverage)](https://codeclimate.com/github/r3Fuze/react-test/test_coverage) [![Greenkeeper badge](https://badges.greenkeeper.io/r3Fuze/react-test.svg)](https://greenkeeper.io/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
