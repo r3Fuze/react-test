@@ -25,7 +25,7 @@ class App extends Component {
         return (
             <div className="App">
                 <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
+                    <a href="/"><img src={logo} className="App-logo" alt="logo" /></a>
                     <h1 className="App-title">Welcome to React (now with GA)</h1>
                 </header>
                 <p className="App-intro">
